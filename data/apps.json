@@ -56,12 +56,12 @@
         "zh": "工具"
       },
       "tagline": {
-        "en": "A privacy vault with a real password and a decoy password",
-        "zh": "一个真实密码，一个迷惑密码，藏在计算器里的隐私保险箱"
+        "en": "A privacy vault for your photos, videos, audio and documents — with a real password and a decoy password",
+        "zh": "存放照片、视频、音频和文档的隐私保险箱——一个真实密码，一个迷惑密码"
       },
       "description": {
-        "en": "PCalcBox is a privacy vault for your photos, videos, audio and documents — disguised as an ordinary working calculator.\n\nSet up two passwords: the real one opens your real private content, while the fake one opens decoy content, so the app's real purpose stays hidden. Any other input is simply calculated — the app never says \"wrong password\".\n\nEverything stays on your device, inside the app's private storage and excluded from iCloud and computer backups. Nothing is uploaded to any server. Import from your photo library, or move files in and out over Wi-Fi with the built-in file-sharing server.",
-        "zh": "PCalcBox 是一个存放照片、视频、音频和文档的隐私保险箱——伪装成一个能正常使用的计算器。\n\n你可以设置两个密码：真实密码打开真正的私密内容，假密码打开迷惑内容，让 App 的真实用途不被人发现。输入其他任何内容都只是正常计算——App 永远不会提示“密码错误”。\n\n所有文件都留在你的设备上，存放在 App 的私有空间，并排除在 iCloud 与电脑备份之外，不会上传到任何服务器。你可以从相册导入，也可以通过内置的文件共享服务在 Wi-Fi 下与电脑互传文件。"
+        "en": "PCalcBox is a privacy vault for your photos, videos, audio and documents — with a real password and a decoy password. It looks and works like an ordinary calculator, and opens only when you enter the right one.\n\nSet up two passwords: the real one opens your real private content, while the fake one opens decoy content, so the app's real purpose stays hidden. Any other input is simply calculated — the app never says \"wrong password\".\n\nEverything stays on your device, inside the app's private storage and excluded from iCloud and computer backups. Nothing is uploaded to any server. Import from your photo library, or move files in and out over Wi-Fi with the built-in file-sharing server.",
+        "zh": "PCalcBox 是一个存放照片、视频、音频和文档的隐私保险箱——一个真实密码，一个迷惑密码。外观就是一个能正常使用的计算器，只有输入正确的密码才会打开。\n\n你可以设置两个密码：真实密码打开真正的私密内容，假密码打开迷惑内容，让 App 的真实用途不被人发现。输入其他任何内容都只是正常计算——App 永远不会提示“密码错误”。\n\n所有文件都留在你的设备上，存放在 App 的私有空间，并排除在 iCloud 与电脑备份之外，不会上传到任何服务器。你可以从相册导入，也可以通过内置的文件共享服务在 Wi-Fi 下与电脑互传文件。"
       },
       "features": {
         "en": [
