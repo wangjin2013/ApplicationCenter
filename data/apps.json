@@ -97,12 +97,12 @@
         "zh": "工具"
       },
       "tagline": {
-        "en": "A full-screen clock with weather, alarms and world time",
-        "zh": "全屏时钟，含天气、闹钟与世界时间"
+        "en": "A full-screen clock with local weather, alarms and a world clock — a display meant to be seen from across the room",
+        "zh": "全屏时钟，含当地天气、闹钟与世界时钟——一块值得远远望过去的显示屏"
       },
       "description": {
         "en": "Turn your iPhone or iPad into a display you actually want to look at. MyClock fills the screen with a beautifully drawn clock face, your local forecast and everything you need to start the day - with nothing else in the way.\n\nMyClock is free to download and supported by ads. If you would rather not see them, a one-time in-app purchase removes every ad for good — it is not a subscription.\n\nWeather data by Open-Meteo.com.",
-        "zh": "把 iPhone 或 iPad 变成一块你真正愿意看的显示屏。MyClock 用精心绘制的表盘、当地天气和开启一天所需的信息填满整个屏幕，没有任何多余元素。\n\n八种原创表盘：数字、指针、翻页、LCD、点阵、圆环、文字钟与极简，全部为本 App 从零绘制，铺满屏幕，隔着房间也能看清。轻点一下唤出标签栏，再点时钟标签，表盘重新占满全屏。\n\n天气显示当前温度、体感、湿度与风力，随后是今天和未来十天；点任意一天可看逐小时详情，包括降雨概率与日出日落时间。\n\n闹钟是一圈 24 小时表盘，已设闹钟的小时会加粗；点某个小时即可添加，每个闹钟可任选重复日期、十种铃声、5–30 分钟贪睡和独立标签。\n\n世界时钟可在城市间滑动，显示各地时间及其相对你所在地的日期（昨天、今天、明天），覆盖 116 个国家、267 座城市。\n\n界面为深色设计，夜间观看舒适；全屏时隐藏状态栏，显示时钟时保持屏幕常亮，iPhone 与 iPad 横竖屏皆可。\n\n无需账号、无需登录，闹钟、城市与偏好设置都保存在你的设备上；定位仅用于获取当地天气，不会上传到服务器。\n\nMyClock 免费下载，由广告支持；不想看广告可一次性内购永久移除，不是订阅制。天气数据来自 Open-Meteo.com。"
+        "zh": "把 iPhone 或 iPad 变成一块你真正愿意看的显示屏。MyClock 用精心绘制的表盘、当地天气和开启一天所需的信息填满整个屏幕，没有任何多余元素。\n\nMyClock 免费下载，由广告支持；不想看广告可一次性内购永久移除，不是订阅制。\n\n天气数据来自 Open-Meteo.com。"
       },
       "features": {
         "en": [
