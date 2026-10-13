@@ -16,7 +16,7 @@
 | 鉴权 | 无 |
 | 编码 | UTF-8 |
 | 响应 | `application/json` |
-| 分页 | 无（全量，个位数 KB） |
+| 分页 | 无（全量，约 17 KB） |
 | CORS | `Access-Control-Allow-Origin: *`（原生 App 不受此限制，无需关心） |
 
 > 未经许可的域名/仓库改名会改变此 URL；如果换域名，需要同步改 iOS 端常量与 JSON 里的图片绝对地址。
@@ -35,6 +35,7 @@
       "id": "knowcal",
       "name": "KnowCal",
       "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/knowcal.png",
+      "iconSmall": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/thumbs/knowcal.png",
       "appStoreUrl": "https://apps.apple.com/us/app/knowcal/id6813519210",
       "category": { "en": "Business", "zh": "商务" },
       "tagline": {
@@ -51,6 +52,9 @@
       },
       "screenshots": [
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/knowcal-1.jpg"
+      ],
+      "screenshotThumbnails": [
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/knowcal-1.jpg"
       ]
     }
   ]
@@ -68,12 +72,14 @@
 | `apps[].id` | String | 稳定标识，可用于埋点/置顶；**不会变** |
 | `apps[].name` | String | App 名称，各语言通用，**不是**本地化对象 |
 | `apps[].icon` | String | 图标完整 URL，1024×1024 PNG |
+| `apps[].iconSmall` | String? | 小图标完整 URL，256×256 PNG。**可能缺失**，缺失时用 `icon` |
 | `apps[].appStoreUrl` | String? | App Store 链接。**可能为空字符串**（如尚未上架） |
 | `apps[].category` | 本地化文本? | 分类标签 |
 | `apps[].tagline` | 本地化文本 | 一句话简介 |
 | `apps[].description` | 本地化文本 | 正文，段落间用 `\n\n` 分隔 |
 | `apps[].features` | 本地化数组? | 要点列表 |
 | `apps[].screenshots` | [String]? | 截图完整 URL，各语言共用 |
+| `apps[].screenshotThumbnails` | [String]? | 截图缩略图完整 URL（宽 300px JPEG），**与 `screenshots` 等长同序**。可能缺失，缺失时用 `screenshots` |
 
 **本地化文本** 有两种形态，客户端必须都支持：
 
@@ -147,15 +153,17 @@ struct AppItem: Decodable, Identifiable {
     let id: String
     let name: String
     let icon: String
+    let iconSmall: String?               // 小图标；缺失时用 icon
     let appStoreUrl: String?
     let category: Localized?
     let tagline: Localized
     let detail: Localized            // 对应 JSON 里的 "description"
     let features: LocalizedList?
     let screenshots: [String]?
+    let screenshotThumbnails: [String]?  // 与 screenshots 等长同序；缺失时用 screenshots
 
     enum CodingKeys: String, CodingKey {
-        case id, name, icon, appStoreUrl, category, tagline, features, screenshots
+        case id, name, icon, iconSmall, appStoreUrl, category, tagline, features, screenshots, screenshotThumbnails
         case detail = "description"
     }
 
@@ -253,7 +261,8 @@ struct AppListView: View {
                     AppDetailView(app: app, language: language)
                 } label: {
                     HStack(spacing: 12) {
-                        AsyncImage(url: URL(string: app.icon)) { image in
+                        // 列表里图标只有 52pt，用 256px 小图即可；iconSmall 缺失时回退原图
+                        AsyncImage(url: URL(string: app.iconSmall ?? app.icon)) { image in
                             image.resizable().scaledToFill()
                         } placeholder: {
                             Color.secondary.opacity(0.15)
@@ -315,13 +324,24 @@ struct AppDetailView: View {
                 }
 
                 if let shots = app.screenshots, !shots.isEmpty {
+                    let thumbs = app.screenshotThumbnails ?? []
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 12) {
-                            ForEach(shots, id: \.self) { url in
-                                AsyncImage(url: URL(string: url)) { image in
+                            ForEach(Array(shots.enumerated()), id: \.offset) { index, url in
+                                // 渐进加载：缩略图先上屏，原图到达后淡入替换
+                                AsyncImage(url: URL(string: url),
+                                           transaction: Transaction(animation: .easeInOut(duration: 0.25))) { image in
                                     image.resizable().scaledToFit()
                                 } placeholder: {
-                                    Color.secondary.opacity(0.15)
+                                    if index < thumbs.count, let thumb = URL(string: thumbs[index]) {
+                                        AsyncImage(url: thumb) { image in
+                                            image.resizable().scaledToFit()
+                                        } placeholder: {
+                                            Color.secondary.opacity(0.15)
+                                        }
+                                    } else {
+                                        Color.secondary.opacity(0.15)
+                                    }
                                 }
                                 .frame(height: 340)
                                 .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
@@ -357,6 +377,7 @@ struct AppDetailView: View {
 ### 说明
 
 - **`description` 改名 `detail`**：`description` 在 Swift 里与 `CustomStringConvertible` 同名，容易踩坑，故用 `CodingKeys` 映射。
+- **截图渐进加载**：把加载缩略图的 `AsyncImage` 嵌在原图 `AsyncImage` 的 `placeholder` 里，即可实现「缩略图先上屏、原图到达后替换」；`screenshotThumbnails` 缺失时代码自动退化为只加载原图。缩略图单张约 12–43 KB，原图约 40–177 KB。
 - **`NavigationView` 而非 `NavigationStack`**：前者 iOS 13+ 可用（iOS 16 起被弃用但仍能跑），为了兼容 iOS 15 才这么写。**如果 App 最低版本是 iOS 16+，换成 `NavigationStack` 更好。**
 - **iOS 13/14 兼容**：把 `URLSession.shared.data(from:)` 换成 `dataTask(with:)` + `withCheckedThrowingContinuation`；`AsyncImage` 换成第三方图片库或自建缓存。
 - **UIKit 项目**：第 3 节的模型与 `AppCatalogService` 不依赖 SwiftUI，可直接用；把 `AppCatalogStore` 换成你自己的 ViewModel 即可。
@@ -379,6 +400,7 @@ struct AppDetailView: View {
 | **必须忽略未知字段** | 服务端会随时新增可选字段。Swift `Codable` 默认即如此，不要手写严格解析 |
 | **`appStoreUrl` 可能为空** | 例如 Filingo 尚未上架。此时隐藏下载按钮，不要显示死链 |
 | **`icon` / `screenshots` 可能加载失败** | 一律提供占位图，不要留空白或崩溃 |
+| **`iconSmall` / `screenshotThumbnails` 可能缺失或长度不齐** | 回退 `icon` / `screenshots`（按索引对应），不要报错 |
 | **必须本地缓存最近一次成功的结果** | 请求失败时展示缓存，避免推荐页空白 |
 | **不要阻塞启动** | 进入推荐页时 `task` 拉取即可；先渲染缓存，再静默刷新 |
 | **不要依赖 `version` 做判断** | 除非它变化；当前恒为 `1` |
@@ -391,6 +413,9 @@ struct AppDetailView: View {
 ```sh
 # 接口可达性与内容
 curl -s https://wangjin2013.github.io/ApplicationCenter/data/apps.json | python3 -m json.tool | head -40
+
+# 缩略图可达性（应返回 200）
+curl -sI https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/knowcal-1.jpg | head -1
 
 # 只看关键字段
 curl -s https://wangjin2013.github.io/ApplicationCenter/data/apps.json \

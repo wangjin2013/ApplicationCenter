@@ -85,11 +85,13 @@ function el(tag, className, text) {
 }
 
 // App icon; falls back to a letter tile when the image is missing.
-function iconEl(app, size) {
+// small=true (list view) prefers the lightweight iconSmall copy.
+function iconEl(app, size, small) {
   const box = el('div', 'icon ' + size);
-  if (!app.icon) return letterTile(box, app);
+  const src = (small && app.iconSmall) || app.icon;
+  if (!src) return letterTile(box, app);
   const img = el('img');
-  img.src = app.icon;
+  img.src = src;
   img.alt = app.name || '';
   img.loading = 'lazy';
   img.addEventListener('error', function () {
@@ -118,7 +120,7 @@ function listView() {
   data.apps.forEach(function (app) {
     const card = el('a', 'card');
     card.href = '#app=' + encodeURIComponent(app.id);
-    card.appendChild(iconEl(app, 'icon-lg'));
+    card.appendChild(iconEl(app, 'icon-lg', true));
     const body = el('div', 'card-body');
     body.appendChild(el('h2', 'card-name', app.name));
     body.appendChild(el('p', 'card-tagline', L(app.tagline)));

@@ -7,6 +7,7 @@
       "id": "knowcal",
       "name": "KnowCal",
       "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/knowcal.png",
+      "iconSmall": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/thumbs/knowcal.png",
       "appStoreUrl": "https://apps.apple.com/us/app/knowcal/id6813519210",
       "category": {
         "en": "Business",
@@ -44,12 +45,20 @@
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/knowcal-3.jpg",
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/knowcal-4.jpg",
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/knowcal-5.jpg"
+      ],
+      "screenshotThumbnails": [
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/knowcal-1.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/knowcal-2.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/knowcal-3.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/knowcal-4.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/knowcal-5.jpg"
       ]
     },
     {
       "id": "pcalcbox",
       "name": "PCalcBox",
       "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/pcalcbox.png",
+      "iconSmall": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/thumbs/pcalcbox.png",
       "appStoreUrl": "https://apps.apple.com/us/app/pcalcbox-protect-photo-video/id957318874",
       "category": {
         "en": "Utilities",
@@ -86,12 +95,21 @@
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-4.jpg",
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-5.jpg",
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-6.jpg"
+      ],
+      "screenshotThumbnails": [
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-1.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-2.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-3.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-4.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-5.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-6.jpg"
       ]
     },
     {
       "id": "myclock",
       "name": "MyClock - Weather and Alarm",
       "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/myclock.png",
+      "iconSmall": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/thumbs/myclock.png",
       "appStoreUrl": "https://apps.apple.com/us/app/myclock-weather-and-alarm/id996961034",
       "category": {
         "en": "Utilities",
@@ -128,6 +146,12 @@
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/myclock-2.jpg",
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/myclock-3.jpg",
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/myclock-4.jpg"
+      ],
+      "screenshotThumbnails": [
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/myclock-1.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/myclock-2.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/myclock-3.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/myclock-4.jpg"
       ]
     },
     {
@@ -163,7 +187,8 @@
           "单一数据源 —— 全部来自 SEC EDGAR，不展示行情数据。"
         ]
       },
-      "screenshots": []
+      "screenshots": [],
+      "screenshotThumbnails": []
     }
   ]
 }

@@ -11,15 +11,23 @@
 index.html            门户页面（列表 + 详情，读取 apps.json 渲染）
 assets/style.css      样式
 assets/icons/         App 图标：<id>.png（1024×1024）
+assets/icons/thumbs/  小图标：<id>.png（256×256，对应 iconSmall）
 assets/screenshots/   App 截图：<id>-1.png、<id>-2.png …
+assets/screenshots/thumbs/  截图缩略图：<id>-1.jpg（宽 300px，对应 screenshotThumbnails）
 data/apps.json        ★ 唯一数据源
 design.md             设计文档
 ```
 
 ## 新增 / 修改一个 App
 
-1. **图标**：1024×1024 PNG（直接用 App Store Connect 的那张），命名为 `assets/icons/<id>.png`
-2. **截图**（可选）：`assets/screenshots/<id>-1.png`、`<id>-2.png` …
+1. **图标**：1024×1024 PNG（直接用 App Store Connect 的那张），命名为 `assets/icons/<id>.png`，再生成 256×256 小图（对应 JSON 的 `iconSmall`，网页列表页用它）：
+   ```sh
+   sips --resampleWidth 256 assets/icons/<id>.png --out assets/icons/thumbs/<id>.png
+   ```
+2. **截图**（可选）：`assets/screenshots/<id>-1.png`、`<id>-2.png` …，再为每张生成 300px 宽 JPEG 缩略图（对应 JSON 的 `screenshotThumbnails`，顺序与截图一一对应）：
+   ```sh
+   sips --resampleWidth 300 -s format jpeg -s formatOptions 60 assets/screenshots/<id>-1.png --out assets/screenshots/thumbs/<id>-1.jpg
+   ```
 3. **编辑 `data/apps.json`**：在 `apps` 数组里加一个对象（字段见下）
 4. **本地预览**：
    ```sh
@@ -39,12 +47,14 @@ design.md             设计文档
 | `id` | string | 是 | 小写英文标识，如 `filingo`。**发布后不要改**（详情页链接依赖它） |
 | `name` | string | 是 | App 名称（各语言相同，不翻译） |
 | `icon` | string | 是 | 图标完整 URL |
+| `iconSmall` | string | 否 | 小图标 URL（256×256）；缺失时客户端回退 `icon` |
 | `appStoreUrl` | string | 否 | App Store 链接；留空则不显示下载按钮 |
 | `category` | 本地化文本 | 否 | 如 `{"en": "Utilities", "zh": "工具"}` |
 | `tagline` | 本地化文本 | 是 | 一句话简介 |
 | `description` | 本地化文本 | 是 | 详细介绍，**段落之间空一行**（`\n\n`） |
 | `features` | 本地化数组 | 否 | 要点列表，如 `{"en": ["…"], "zh": ["…"]}` |
 | `screenshots` | URL 数组 | 否 | 截图完整 URL；留空则不显示画廊 |
+| `screenshotThumbnails` | URL 数组 | 否 | 截图缩略图 URL，**与 `screenshots` 等长同序**；缺失时回退 `screenshots` |
 
 - **本地化文本** = `{"en": "…", "zh": "…"}`。客户端按当前语言取值，缺该语言时回退到 `en`。
 - 顶层 `apps` 数组的**顺序就是网页展示顺序**。
@@ -55,6 +65,7 @@ design.md             设计文档
 - 图片 URL 必须写**完整地址**——iOS App 拿到 JSON 后无法解析相对路径。
 - 缺 `icon` 或图片 404 时，页面自动显示首字母方块；缺 `appStoreUrl` 时自动隐藏下载按钮（所以占位数据也能正常预览）。
 - 当前 `data/apps.json` 里的**所有文案都是占位**（`[Placeholder …]` / `【占位…】`），图标文件也还没放，需要替换。
+- **替换图标或截图后，记得用上面第 1、2 步的命令同步重生成缩略图**，否则网页列表页会继续显示旧的小图。
 
 ## iOS 端接入
 

@@ -50,7 +50,9 @@ GitHub Pages 自动部署（约 1 分钟）
 ├── assets/
 │   ├── style.css
 │   ├── icons/<id>.png         # 1024×1024 PNG，直接复用 App Store 图标
-│   └── screenshots/<id>-1.png # 直接复用 App Store 截图
+│   ├── icons/thumbs/<id>.png  # 256×256 小图标（iconSmall 指向这里）
+│   ├── screenshots/<id>-1.png # 直接复用 App Store 截图
+│   └── screenshots/thumbs/<id>-1.jpg # 300px 宽 JPEG 缩略图（screenshotThumbnails 指向这里）
 └── data/
     └── apps.json              # ★ 唯一数据源（网页与 iOS 共用）
 ```
@@ -67,10 +69,12 @@ GitHub Pages 自动部署（约 1 分钟）
 | `apps[].name` | string | 是 | App 名称（各语言通用，不翻译，故为普通字符串） |
 | `apps[].tagline` | 本地化文本 | 是 | 一句话简介，列表卡片展示 |
 | `apps[].icon` | string | 是 | 图标**完整 URL** |
+| `apps[].iconSmall` | string | 否 | 小图标**完整 URL**（256×256）；缺失时客户端回退 `icon` |
 | `apps[].category` | 本地化文本 | 否 | 分类标签 |
 | `apps[].description` | 本地化文本 | 是 | 详细介绍；段落间用 `\n\n` 分隔 |
 | `apps[].features` | 本地化数组 | 否 | 特性要点列表，如 `{"en": [...], "zh": [...]}` |
 | `apps[].screenshots` | [string] | 否 | 截图完整 URL 数组（各语言共用） |
+| `apps[].screenshotThumbnails` | [string] | 否 | 截图缩略图 URL 数组，**与 `screenshots` 等长同序**；缺失时回退 `screenshots` |
 | `apps[].appStoreUrl` | string | 否 | App Store 页面链接；留空则网页自动隐藏下载按钮 |
 
 设计说明：
@@ -78,7 +82,8 @@ GitHub Pages 自动部署（约 1 分钟）
 - **面向用户的文案字段是「本地化文本」**：值为对象 `{"en": …, "zh": …}`，客户端按当前语言取值、缺该语言时回退 `defaultLocale`（`en`）。英语为主，故 `en` 为准。`name` 与 `icon` 各语言相同，保持普通字符串，不做无谓包装。
 - **图片 URL 用完整绝对地址**（如 `https://wangjin2013.github.io/ApplicationCenter/assets/icons/filingo.png`）。原因：iOS App 拿到 JSON 后无法解析相对路径；绝对 URL 让任何消费者零逻辑直接使用。代价：若换域名/仓库名需批量替换 JSON 内 URL——可接受，发生概率低。
 - **description 用纯文本**（`\n\n` 分段），不用 Markdown/HTML：iOS 端 UILabel 直接渲染零成本，网页端按空行分段即可。将来需要富文本时新增 `descriptionMarkdown` 字段，不破坏兼容。
-- 素材**直接复用 App Store Connect 的图标（1024×1024 PNG）与截图**，无额外加工。
+- 素材**直接复用 App Store Connect 的图标（1024×1024 PNG）与截图**，再用 macOS 自带的 `sips` 生成低清副本（256×256 小图标、300px 宽截图缩略图，放 `assets/*/thumbs/`），命令见 README。
+- **图片分两级（原图 + 缩略图）**：客户端先加载 `iconSmall` / `screenshotThumbnails` 快速上屏，原图（`icon` / `screenshots`）到达后替换，以适应不同网络速率。不用「渐进式 JPEG 单文件」的原因：iOS `AsyncImage` / `UIImage` 要等整张图下载完才解码，扫描线渐进显示不生效，拆成两个文件才是原生端渐进加载的正确做法。缩略图均为可选字段，缺失时客户端直接用原图，行为不坏。
 
 示例（占位数据）：
 
@@ -93,11 +98,15 @@ GitHub Pages 自动部署（约 1 分钟）
       "name": "Example App",
       "tagline": { "en": "One-line summary", "zh": "一句话简介" },
       "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/example.png",
+      "iconSmall": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/thumbs/example.png",
       "category": { "en": "Utilities", "zh": "工具" },
       "description": { "en": "Paragraph one.\n\nParagraph two.", "zh": "第一段。\n\n第二段。" },
       "features": { "en": ["Highlight one"], "zh": ["亮点一"] },
       "screenshots": [
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/example-1.png"
+      ],
+      "screenshotThumbnails": [
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/example-1.jpg"
       ],
       "appStoreUrl": "https://apps.apple.com/app/id123456789"
     }
@@ -113,7 +122,7 @@ GitHub Pages 自动部署（约 1 分钟）
 - **生效延迟**：push 后 GitHub Pages 部署约 1 分钟；CDN 边缘缓存最长约 10 分钟
 - **iOS 端建议**（客户端职责，此处仅作约定）：
   - 本地持久化最近一次成功解析的结果；请求失败时展示缓存数据，不出现空白
-  - 数据量小（个位数 KB），全量拉取即可，无需分页
+  - 数据量小（约 17 KB），全量拉取即可，无需分页
   - `appStoreUrl` 用 `openURL` 跳转系统 App Store，或用 `SKStoreProductController` 应用内展示
 
 ## 6. 网页端设计（index.html）
@@ -129,7 +138,7 @@ GitHub Pages 自动部署（约 1 分钟）
 
 ## 7. 内容更新工作流（新增一个 App）
 
-1. 图标与截图放入 `assets/icons/`、`assets/screenshots/`
+1. 图标与截图放入 `assets/icons/`、`assets/screenshots/`，并生成对应缩略图（sips 命令见 README）
 2. 在 `data/apps.json` 的 `apps` 数组追加一个对象（放在期望的展示位置）
 3. 本地预览：`python3 -m http.server` → 浏览器打开 `http://localhost:8000` 检查
 4. commit + push；约 1 分钟后线上生效
