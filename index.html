@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Application Center</title>
+<meta name="description" content="iOS apps by wangjin2013, with details and App Store links.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="#" id="brand">Application Center</a>
+  <div class="lang" id="lang">
+    <button type="button" data-lang="en">EN</button>
+    <button type="button" data-lang="zh">中文</button>
+  </div>
+</header>
+
+<main class="container" id="main">
+  <p class="muted">Loading…</p>
+</main>
+
+<footer class="container site-footer">
+  <span class="muted" id="updated"></span>
+</footer>
+
+<script>
+const I18N = {
+  en: {
+    brand: 'Application Center',
+    apps: 'My iOS Apps',
+    updated: 'Last updated',
+    error: 'Could not load app data.',
+    retry: 'Retry',
+    back: '← All apps',
+    download: 'View on the App Store',
+    features: 'Highlights'
+  },
+  zh: {
+    brand: '应用中心',
+    apps: '我的 iOS 应用',
+    updated: '最后更新',
+    error: '数据加载失败。',
+    retry: '重试',
+    back: '← 全部应用',
+    download: '前往 App Store',
+    features: '主要特性'
+  }
+};
+
+const mainEl = document.getElementById('main');
+const brandEl = document.getElementById('brand');
+const updatedEl = document.getElementById('updated');
+const langEl = document.getElementById('lang');
+
+let locale = readLocale();
+let data = null;
+
+function readLocale() {
+  try { return localStorage.getItem('locale') === 'zh' ? 'zh' : 'en'; } catch (e) { return 'en'; }
+}
+
+function t(key) { return I18N[locale][key]; }
+
+// Localized text: a plain string, or {en, zh} resolved with English fallback.
+function L(value) {
+  if (value == null) return '';
+  if (typeof value === 'string') return value;
+  return value[locale] || value.en || '';
+}
+
+// Localized array: a plain array, or {en: [...], zh: [...]}.
+function LA(value) {
+  if (!value) return [];
+  if (Array.isArray(value)) return value;
+  return value[locale] || value.en || [];
+}
+
+function el(tag, className, text) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  if (text != null) node.textContent = text;
+  return node;
+}
+
+// App icon; falls back to a letter tile when the image is missing.
+function iconEl(app, size) {
+  const box = el('div', 'icon ' + size);
+  if (!app.icon) return letterTile(box, app);
+  const img = el('img');
+  img.src = app.icon;
+  img.alt = app.name || '';
+  img.loading = 'lazy';
+  img.addEventListener('error', function () {
+    box.removeChild(img);
+    letterTile(box, app);
+  });
+  box.appendChild(img);
+  return box;
+}
+
+function letterTile(box, app) {
+  box.classList.add('fallback');
+  box.textContent = (app.name || '?').trim().charAt(0).toUpperCase();
+  return box;
+}
+
+function currentId() {
+  const m = location.hash.match(/^#app=(.+)$/);
+  return m ? decodeURIComponent(m[1]) : null;
+}
+
+function listView() {
+  const wrap = el('div');
+  wrap.appendChild(el('h1', 'page-title', t('apps')));
+  const grid = el('div', 'grid');
+  data.apps.forEach(function (app) {
+    const card = el('a', 'card');
+    card.href = '#app=' + encodeURIComponent(app.id);
+    card.appendChild(iconEl(app, 'icon-lg'));
+    const body = el('div', 'card-body');
+    body.appendChild(el('h2', 'card-name', app.name));
+    body.appendChild(el('p', 'card-tagline', L(app.tagline)));
+    const category = L(app.category);
+    if (category) body.appendChild(el('span', 'chip', category));
+    card.appendChild(body);
+    grid.appendChild(card);
+  });
+  wrap.appendChild(grid);
+  return wrap;
+}
+
+function detailView(app) {
+  const wrap = el('div');
+
+  const back = el('a', 'back', t('back'));
+  back.href = '#';
+  wrap.appendChild(back);
+
+  const hero = el('div', 'hero');
+  hero.appendChild(iconEl(app, 'icon-xl'));
+  hero.appendChild(el('h1', 'app-name', app.name));
+  hero.appendChild(el('p', 'app-tagline', L(app.tagline)));
+  const category = L(app.category);
+  if (category) hero.appendChild(el('span', 'chip', category));
+  if (app.appStoreUrl) {
+    const button = el('a', 'button', t('download'));
+    button.href = app.appStoreUrl;
+    button.target = '_blank';
+    button.rel = 'noopener';
+    hero.appendChild(button);
+  }
+  wrap.appendChild(hero);
+
+  const shots = app.screenshots || [];
+  if (shots.length) {
+    const strip = el('div', 'shots');
+    shots.forEach(function (url) {
+      const img = el('img', 'shot');
+      img.src = url;
+      img.alt = app.name || '';
+      img.loading = 'lazy';
+      strip.appendChild(img);
+    });
+    wrap.appendChild(strip);
+  }
+
+  const description = L(app.description);
+  if (description) {
+    const body = el('div', 'description');
+    description.split('\n\n').forEach(function (paragraph) {
+      if (paragraph.trim()) body.appendChild(el('p', null, paragraph.trim()));
+    });
+    wrap.appendChild(body);
+  }
+
+  const features = LA(app.features);
+  if (features.length) {
+    wrap.appendChild(el('h2', 'section-title', t('features')));
+    const list = el('ul', 'features');
+    features.forEach(function (feature) { list.appendChild(el('li', null, feature)); });
+    wrap.appendChild(list);
+  }
+
+  return wrap;
+}
+
+function render() {
+  document.documentElement.lang = locale === 'zh' ? 'zh-Hans' : 'en';
+  brandEl.textContent = t('brand');
+  Array.prototype.forEach.call(langEl.children, function (button) {
+    button.classList.toggle('active', button.dataset.lang === locale);
+  });
+
+  mainEl.textContent = '';
+  if (!data) {
+    mainEl.appendChild(el('p', 'muted', 'Loading…'));
+    return;
+  }
+
+  const id = currentId();
+  const app = id ? data.apps.filter(function (a) { return a.id === id; })[0] : null;
+  if (id && !app) { location.hash = ''; return; }
+
+  mainEl.appendChild(app ? detailView(app) : listView());
+  updatedEl.textContent = data.updatedAt ? t('updated') + ': ' + data.updatedAt : '';
+}
+
+langEl.addEventListener('click', function (event) {
+  const next = event.target.dataset ? event.target.dataset.lang : null;
+  if (!next) return;
+  locale = next;
+  try { localStorage.setItem('locale', next); } catch (e) {}
+  render();
+});
+
+window.addEventListener('hashchange', render);
+
+fetch('data/apps.json', { cache: 'no-cache' })
+  .then(function (response) {
+    if (!response.ok) throw new Error('HTTP ' + response.status);
+    return response.json();
+  })
+  .then(function (json) { data = json; render(); })
+  .catch(function () {
+    mainEl.textContent = '';
+    mainEl.appendChild(el('p', 'muted', t('error')));
+    const retry = el('button', 'button', t('retry'));
+    retry.addEventListener('click', function () { location.reload(); });
+    mainEl.appendChild(retry);
+  });
+
+render();
+</script>
+</body>
+</html>

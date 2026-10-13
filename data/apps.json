@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "defaultLocale": "en",
+  "updatedAt": "2026-10-13",
+  "apps": [
+    {
+      "id": "knowcal",
+      "name": "KnowCal",
+      "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/knowcal.png",
+      "appStoreUrl": "https://apps.apple.com/us/app/knowcal/id6813519210",
+      "category": {
+        "en": "Business",
+        "zh": "商务"
+      },
+      "tagline": {
+        "en": "Smart business card scanner & manager",
+        "zh": "智能名片扫描与管理"
+      },
+      "description": {
+        "en": "KnowCal turns every business card into a ready-to-use contact in seconds. Simply point your iPhone camera (or import a photo from your album) and the app instantly detects the card’s orientation, extracts the text with high-precision OCR, and parses the information into clean, editable fields.\n\nWhether you’re networking at a conference, following up after a meeting, or simply digitizing a stack of cards, KnowCal makes the process fast, accurate, and completely secure. Download it now from the App Store and never lose a valuable contact again.",
+        "zh": "KnowCal 让每一张名片在几秒内变成可直接使用的联系人。用 iPhone 摄像头对准名片（或从相册导入照片），App 会自动识别名片方向，用高精度 OCR 提取文字，并把信息整理成干净、可编辑的字段。\n\n无论是在会议现场交换名片、会后跟进，还是想把手头一叠名片数字化，KnowCal 都让整个过程快速、准确、完全安全。"
+      },
+      "features": {
+        "en": [
+          "Intelligent scanning & recognition – Automatic direction detection, perspective correction, and multi-language OCR handle both Chinese and English cards, even when the image is skewed or poorly lit.",
+          "Precise address extraction – Complex, multi-line addresses are intelligently identified and displayed in full, preserving street, district, postal code and other details without truncation.",
+          "True bilingual support – The interface and recognition results fluidly switch between Chinese and English, ensuring a seamless experience no matter the card’s language.",
+          "One-tap contact storage – Save the parsed data as a standard VCard with a single tap, directly add it to your Contacts, or update an existing entry.",
+          "QR-card import – Scan a vCard QR code to instantly create a contact without any manual input.",
+          "Privacy-first – All processing happens on-device; none of your card images or data ever leave your phone."
+        ],
+        "zh": [
+          "智能扫描识别 —— 自动方向检测、透视校正与多语言 OCR，中英文名片都能处理，即使图片倾斜或光线不佳。",
+          "精确地址识别 —— 智能解析复杂的多行地址并完整显示，街道、区、邮编等细节不会被截断。",
+          "真正的双语支持 —— 界面与识别结果在中英文间流畅切换，无论名片是哪种语言都能顺畅使用。",
+          "一键存入联系人 —— 识别结果一键保存为标准 VCard，直接加入通讯录，也可更新已有联系人。",
+          "二维码名片导入 —— 扫描 vCard 二维码即可立即创建联系人，无需手动输入。",
+          "隐私优先 —— 全部处理都在设备本地完成，名片图片与数据不会离开你的手机。"
+        ]
+      },
+      "screenshots": [
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/knowcal-1.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/knowcal-2.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/knowcal-3.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/knowcal-4.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/knowcal-5.jpg"
+      ]
+    },
+    {
+      "id": "pcalcbox",
+      "name": "PCalcBox",
+      "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/pcalcbox.png",
+      "appStoreUrl": "https://apps.apple.com/us/app/pcalcbox-protect-photo-video/id957318874",
+      "category": {
+        "en": "Utilities",
+        "zh": "工具"
+      },
+      "tagline": {
+        "en": "A privacy vault with a real password and a decoy password",
+        "zh": "一个真实密码，一个迷惑密码，藏在计算器里的隐私保险箱"
+      },
+      "description": {
+        "en": "PCalcBox is a privacy vault for your photos, videos, audio and documents — disguised as an ordinary working calculator.\n\nSet up two passwords: the real one opens your real private content, while the fake one opens decoy content, so the app's real purpose stays hidden. Any other input is simply calculated — the app never says \"wrong password\".\n\nEverything stays on your device, inside the app's private storage and excluded from iCloud and computer backups. Nothing is uploaded to any server. Import from your photo library, or move files in and out over Wi-Fi with the built-in file-sharing server.",
+        "zh": "PCalcBox 是一个存放照片、视频、音频和文档的隐私保险箱——伪装成一个能正常使用的计算器。\n\n你可以设置两个密码：真实密码打开真正的私密内容，假密码打开迷惑内容，让 App 的真实用途不被人发现。输入其他任何内容都只是正常计算——App 永远不会提示“密码错误”。\n\n所有文件都留在你的设备上，存放在 App 的私有空间，并排除在 iCloud 与电脑备份之外，不会上传到任何服务器。你可以从相册导入，也可以通过内置的文件共享服务在 Wi-Fi 下与电脑互传文件。"
+      },
+      "features": {
+        "en": [
+          "Two passwords - A real one and a decoy one; only you know which is which.",
+          "Calculator camouflage - The vault opens from a working calculator, and there is no \"wrong password\" message.",
+          "On-device only - Files live in the app's private storage, excluded from iCloud and computer backups.",
+          "Wi-Fi file sharing - A built-in server lets you browse, download and upload files from a computer on the same network.",
+          "Organised by type - Separate Photos, Videos, Audio and Documents areas."
+        ],
+        "zh": [
+          "双密码 —— 一个真实密码、一个迷惑密码，只有你知道哪个是哪个。",
+          "计算器伪装 —— 从一个能正常使用的计算器进入保险箱，且不会出现“密码错误”提示。",
+          "只存在本机 —— 文件存放在 App 私有空间，已排除在 iCloud 与电脑备份之外。",
+          "Wi-Fi 文件共享 —— 内置服务，可用同一网络下的电脑浏览、下载和上传文件。",
+          "按类型分区 —— 照片、视频、音频、文档各自独立。"
+        ]
+      },
+      "screenshots": [
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-1.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-2.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-3.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-4.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-5.jpg"
+      ]
+    },
+    {
+      "id": "myclock",
+      "name": "MyClock - Weather and Alarm",
+      "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/myclock.png",
+      "appStoreUrl": "https://apps.apple.com/us/app/myclock-weather-and-alarm/id996961034",
+      "category": {
+        "en": "Utilities",
+        "zh": "工具"
+      },
+      "tagline": {
+        "en": "A full-screen clock with weather, alarms and world time",
+        "zh": "全屏时钟，含天气、闹钟与世界时间"
+      },
+      "description": {
+        "en": "Turn your iPhone or iPad into a display you actually want to look at. MyClock fills the screen with a beautifully drawn clock face, your local forecast and everything you need to start the day - with nothing else in the way.\n\nMyClock is free to download and supported by ads. If you would rather not see them, a one-time in-app purchase removes every ad for good — it is not a subscription.\n\nWeather data by Open-Meteo.com.",
+        "zh": "把 iPhone 或 iPad 变成一块你真正愿意看的显示屏。MyClock 用精心绘制的表盘、当地天气和开启一天所需的信息填满整个屏幕，没有任何多余元素。\n\n八种原创表盘：数字、指针、翻页、LCD、点阵、圆环、文字钟与极简，全部为本 App 从零绘制，铺满屏幕，隔着房间也能看清。轻点一下唤出标签栏，再点时钟标签，表盘重新占满全屏。\n\n天气显示当前温度、体感、湿度与风力，随后是今天和未来十天；点任意一天可看逐小时详情，包括降雨概率与日出日落时间。\n\n闹钟是一圈 24 小时表盘，已设闹钟的小时会加粗；点某个小时即可添加，每个闹钟可任选重复日期、十种铃声、5–30 分钟贪睡和独立标签。\n\n世界时钟可在城市间滑动，显示各地时间及其相对你所在地的日期（昨天、今天、明天），覆盖 116 个国家、267 座城市。\n\n界面为深色设计，夜间观看舒适；全屏时隐藏状态栏，显示时钟时保持屏幕常亮，iPhone 与 iPad 横竖屏皆可。\n\n无需账号、无需登录，闹钟、城市与偏好设置都保存在你的设备上；定位仅用于获取当地天气，不会上传到服务器。\n\nMyClock 免费下载，由广告支持；不想看广告可一次性内购永久移除，不是订阅制。天气数据来自 Open-Meteo.com。"
+      },
+      "features": {
+        "en": [
+          "A clock worth looking at - Choose from eight original faces: Digital, Analog, Flip, LCD, Dot matrix, Rings, Word clock and Minimal. Every face is drawn from scratch for this app, sized to fill the screen edge to edge and readable from across the room. Tap once to bring up the tabs; tap the Clock tab and the display takes the whole screen back.",
+          "Weather where you are - See the current temperature, what it feels like, humidity and wind at a glance, followed by today and the next ten days. Tap any day for an hour-by-hour breakdown with the chance of rain and the sunrise and sunset times. Switch between Celsius and Fahrenheit in Settings.",
+          "Alarms on a 24-hour dial - The alarm tab shows a ring of all 24 hours, and the hours you have an alarm on are drawn thick. Tap an hour to add one. Each alarm can repeat on any combination of days, use one of ten tones, snooze for 5 to 30 minutes and carry its own label.",
+          "A world clock that keeps up - Swipe between cities to see the time anywhere, with the day shown relative to yours - yesterday, today or tomorrow. New York, Beijing, Geneva and London are there to start with, and you can add any of 267 cities across 116 countries.",
+          "Made to be left on - MyClock uses a dark interface that is easy on the eyes at night, hides the status bar when the display is full screen, and keeps the screen awake while the clock is showing. It runs on iPhone and iPad, in portrait and landscape.",
+          "Private by design - There is no account and no sign-in. Your alarms, cities and preferences stay on your device. Your location is used only to fetch the local forecast and is never stored on a server."
+        ],
+        "zh": [
+          "值得一看的时钟 —— 数字、指针、翻页、LCD、点阵、圆环、文字钟、极简八种原创表盘，全部从零绘制并铺满屏幕。",
+          "当地天气 —— 当前温度、体感、湿度与风力，加上今天和未来十天预报，可查看逐小时详情、降雨概率与日出日落。",
+          "24 小时表盘闹钟 —— 一圈 24 小时，点小时即可添加；可任选重复日、十种铃声、5–30 分钟贪睡与独立标签。",
+          "跟得上你的世界时钟 —— 城市间滑动查看，各地日期相对你所在地显示；覆盖 116 个国家、267 座城市。",
+          "适合长期显示 —— 深色界面、全屏显示、屏幕常亮；iPhone 与 iPad 横竖屏皆可。",
+          "隐私设计 —— 无需账号与登录，闹钟、城市和偏好只保存在你的设备上。"
+        ]
+      },
+      "screenshots": [
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/myclock-1.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/myclock-2.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/myclock-3.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/myclock-4.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/myclock-5.jpg"
+      ]
+    },
+    {
+      "id": "filingo",
+      "name": "Filingo",
+      "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/filingo.png",
+      "appStoreUrl": "",
+      "category": {
+        "en": "Finance",
+        "zh": "财务"
+      },
+      "tagline": {
+        "en": "SEC filings viewer for US stocks",
+        "zh": "美股 SEC 文件浏览器"
+      },
+      "description": {
+        "en": "Filingo is an iOS app focused on US stocks: manage your watchlist, view company details and read SEC filings — all from a single source, the U.S. Securities and Exchange Commission.\n\nSearch and build a watchlist where each row shows the company name, exchange and its most recent filing type. Open a company for an overview, fundamental trends (revenue, net income and EPS from SEC XBRL data) and its latest filings.\n\nFilings are browsed in three levels — company, then form type with counts, then the specific filing — and read in an embedded viewer that loads the original document straight from sec.gov.\n\nFilingo displays only data publicly released by the SEC and shows no market data.",
+        "zh": "Filingo 是一款专注美股的 iOS App：管理自选股、查看公司详情、阅读 SEC 文件——数据全部来自同一个来源，美国证券交易委员会（SEC）。\n\n你可以搜索并建立自选股列表，每一行显示公司名称、交易所和最近一次申报的文件类型；进入公司可查看概览、基本面趋势（来自 SEC XBRL 数据的营收、净利润与每股收益）以及最近的申报文件。\n\n文件按三级浏览——公司 → 文件类型（带数量）→ 具体文件——并在内置阅读器中直接加载 sec.gov 上的原始文档。\n\nFilingo 仅展示 SEC 公开发布的数据，不提供任何行情信息。"
+      },
+      "features": {
+        "en": [
+          "Watchlist management - Search and manage your US stock watchlist, with company name, exchange and latest filing type per row.",
+          "Company details - Overview plus fundamental trends (revenue, net income, EPS) from SEC XBRL data, and the latest five filings.",
+          "Three-level filings browser - Company, then form type with counts, then the specific filing.",
+          "Filing reader - An embedded viewer loads the raw documents directly from sec.gov.",
+          "One data source - Everything comes from SEC EDGAR; no market data is shown."
+        ],
+        "zh": [
+          "自选股管理 —— 搜索并管理美股自选列表，每行显示公司名称、交易所与最近申报类型。",
+          "公司详情 —— 概览，加上来自 SEC XBRL 数据的营收、净利润、每股收益趋势，以及最近 5 份文件。",
+          "三级文件浏览 —— 公司 → 文件类型（带数量）→ 具体文件。",
+          "文件阅读器 —— 内置阅读器直接加载 sec.gov 上的原始文档。",
+          "单一数据源 —— 全部来自 SEC EDGAR，不展示行情数据。"
+        ]
+      },
+      "screenshots": []
+    }
+  ]
+}
