@@ -427,11 +427,10 @@ curl -s https://wangjin2013.github.io/ApplicationCenter/data/apps.json \
 当前线上数据：
 
 ```
-1 2026-10-13
+1 2026-10-15
   knowcal  | KnowCal                      | store: True
-  pcalcbox | PCalcBox                     | store: True
   myclock  | MyClock - Weather and Alarm  | store: True
   filingo  | Filingo                      | store: False   ← 尚未上架，按钮应隐藏
 ```
 
-联调通过标准：列表渲染出 4 个 App、点击能进详情、Filingo 不显示下载按钮、其余三个能跳到 App Store、断网后仍能看到上次的数据。
+联调通过标准：列表渲染出 3 个 App、点击能进详情、Filingo 不显示下载按钮、其余两个能跳到 App Store、断网后仍能看到上次的数据。

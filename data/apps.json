@@ -1,7 +1,7 @@
 {
   "version": 1,
   "defaultLocale": "en",
-  "updatedAt": "2026-10-13",
+  "updatedAt": "2026-10-15",
   "apps": [
     {
       "id": "knowcal",
@@ -52,57 +52,6 @@
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/knowcal-3.jpg",
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/knowcal-4.jpg",
         "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/knowcal-5.jpg"
-      ]
-    },
-    {
-      "id": "pcalcbox",
-      "name": "PCalcBox",
-      "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/pcalcbox.png",
-      "iconSmall": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/thumbs/pcalcbox.png",
-      "appStoreUrl": "https://apps.apple.com/us/app/pcalcbox-protect-photo-video/id957318874",
-      "category": {
-        "en": "Utilities",
-        "zh": "工具"
-      },
-      "tagline": {
-        "en": "A privacy vault for your photos, videos, audio and documents — with a real password and a decoy password",
-        "zh": "存放照片、视频、音频和文档的隐私保险箱——一个真实密码，一个迷惑密码"
-      },
-      "description": {
-        "en": "PCalcBox is a privacy vault for your photos, videos, audio and documents — with a real password and a decoy password. It looks and works like an ordinary calculator, and opens only when you enter the right one.\n\nSet up two passwords: the real one opens your real private content, while the fake one opens decoy content, so the app's real purpose stays hidden. Any other input is simply calculated — the app never says \"wrong password\".\n\nEverything stays on your device, inside the app's private storage and excluded from iCloud and computer backups. Nothing is uploaded to any server. Import from your photo library, or move files in and out over Wi-Fi with the built-in file-sharing server.",
-        "zh": "PCalcBox 是一个存放照片、视频、音频和文档的隐私保险箱——一个真实密码，一个迷惑密码。外观就是一个能正常使用的计算器，只有输入正确的密码才会打开。\n\n你可以设置两个密码：真实密码打开真正的私密内容，假密码打开迷惑内容，让 App 的真实用途不被人发现。输入其他任何内容都只是正常计算——App 永远不会提示“密码错误”。\n\n所有文件都留在你的设备上，存放在 App 的私有空间，并排除在 iCloud 与电脑备份之外，不会上传到任何服务器。你可以从相册导入，也可以通过内置的文件共享服务在 Wi-Fi 下与电脑互传文件。"
-      },
-      "features": {
-        "en": [
-          "Two passwords - A real one and a decoy one; only you know which is which.",
-          "Calculator camouflage - The vault opens from a working calculator, and there is no \"wrong password\" message.",
-          "On-device only - Files live in the app's private storage, excluded from iCloud and computer backups.",
-          "Wi-Fi file sharing - A built-in server lets you browse, download and upload files from a computer on the same network.",
-          "Organised by type - Separate Photos, Videos, Audio and Documents areas."
-        ],
-        "zh": [
-          "双密码 —— 一个真实密码、一个迷惑密码，只有你知道哪个是哪个。",
-          "计算器伪装 —— 从一个能正常使用的计算器进入保险箱，且不会出现“密码错误”提示。",
-          "只存在本机 —— 文件存放在 App 私有空间，已排除在 iCloud 与电脑备份之外。",
-          "Wi-Fi 文件共享 —— 内置服务，可用同一网络下的电脑浏览、下载和上传文件。",
-          "按类型分区 —— 照片、视频、音频、文档各自独立。"
-        ]
-      },
-      "screenshots": [
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-1.jpg",
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-2.jpg",
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-3.jpg",
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-4.jpg",
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-5.jpg",
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/pcalcbox-6.jpg"
-      ],
-      "screenshotThumbnails": [
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-1.jpg",
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-2.jpg",
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-3.jpg",
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-4.jpg",
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-5.jpg",
-        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/pcalcbox-6.jpg"
       ]
     },
     {
