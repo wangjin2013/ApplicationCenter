@@ -1,7 +1,7 @@
 {
   "version": 1,
   "defaultLocale": "en",
-  "updatedAt": "2026-10-15",
+  "updatedAt": "2026-10-19",
   "apps": [
     {
       "id": "knowcal",
@@ -105,8 +105,9 @@
     },
     {
       "id": "filingo",
-      "name": "Filingo",
+      "name": "FilingoReader",
       "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/filingo.png",
+      "iconSmall": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/thumbs/filingo.png",
       "appStoreUrl": "",
       "category": {
         "en": "Finance",
@@ -117,8 +118,8 @@
         "zh": "美股 SEC 文件浏览器"
       },
       "description": {
-        "en": "Filingo is an iOS app focused on US stocks: manage your watchlist, view company details and read SEC filings — all from a single source, the U.S. Securities and Exchange Commission.\n\nSearch and build a watchlist where each row shows the company name, exchange and its most recent filing type. Open a company for an overview, fundamental trends (revenue, net income and EPS from SEC XBRL data) and its latest filings.\n\nFilings are browsed in three levels — company, then form type with counts, then the specific filing — and read in an embedded viewer that loads the original document straight from sec.gov.\n\nFilingo displays only data publicly released by the SEC and shows no market data.",
-        "zh": "Filingo 是一款专注美股的 iOS App：管理自选股、查看公司详情、阅读 SEC 文件——数据全部来自同一个来源，美国证券交易委员会（SEC）。\n\n你可以搜索并建立自选股列表，每一行显示公司名称、交易所和最近一次申报的文件类型；进入公司可查看概览、基本面趋势（来自 SEC XBRL 数据的营收、净利润与每股收益）以及最近的申报文件。\n\n文件按三级浏览——公司 → 文件类型（带数量）→ 具体文件——并在内置阅读器中直接加载 sec.gov 上的原始文档。\n\nFilingo 仅展示 SEC 公开发布的数据，不提供任何行情信息。"
+        "en": "FilingoReader is an iOS app focused on US stocks: manage your watchlist, view company details and read SEC filings — all from a single source, the U.S. Securities and Exchange Commission.\n\nSearch and build a watchlist where each row shows the company name, exchange and its most recent filing type. Open a company for an overview, fundamental trends (revenue, net income and EPS from SEC XBRL data) and its latest filings.\n\nFilings are browsed in three levels — company, then form type with counts, then the specific filing — and read in an embedded viewer that loads the original document straight from sec.gov.\n\nFilingoReader is free to download and supported by ads. A one-time in-app purchase removes every ad, on all devices signed in with the same Apple ID.\n\nFilingoReader displays only data publicly released by the SEC and shows no market data.",
+        "zh": "FilingoReader 是一款专注美股的 iOS App：管理自选股、查看公司详情、阅读 SEC 文件——数据全部来自同一个来源，美国证券交易委员会（SEC）。\n\n你可以搜索并建立自选股列表，每一行显示公司名称、交易所和最近一次申报的文件类型；进入公司可查看概览、基本面趋势（来自 SEC XBRL 数据的营收、净利润与每股收益）以及最近的申报文件。\n\n文件按三级浏览——公司 → 文件类型（带数量）→ 具体文件——并在内置阅读器中直接加载 sec.gov 上的原始文档。\n\nFilingoReader 免费下载，由广告支持；一次性内购可去除同一 Apple ID 登录的所有设备上的广告。\n\nFilingoReader 仅展示 SEC 公开发布的数据，不提供任何行情信息。"
       },
       "features": {
         "en": [
@@ -126,6 +127,8 @@
           "Company details - Overview plus fundamental trends (revenue, net income, EPS) from SEC XBRL data, and the latest five filings.",
           "Three-level filings browser - Company, then form type with counts, then the specific filing.",
           "Filing reader - An embedded viewer loads the raw documents directly from sec.gov.",
+          "New-filing alerts - Background checks for new 10-K, 10-Q and 8-K filings from your watchlist, with a notification when something arrives.",
+          "Optional iCloud sync - Keep your watchlist on all your devices through your own iCloud account; off by default.",
           "One data source - Everything comes from SEC EDGAR; no market data is shown."
         ],
         "zh": [
@@ -133,6 +136,8 @@
           "公司详情 —— 概览，加上来自 SEC XBRL 数据的营收、净利润、每股收益趋势，以及最近 5 份文件。",
           "三级文件浏览 —— 公司 → 文件类型（带数量）→ 具体文件。",
           "文件阅读器 —— 内置阅读器直接加载 sec.gov 上的原始文档。",
+          "新公告提醒 —— 后台检查自选股的新 10-K、10-Q、8-K 公告，有新的即通知。",
+          "可选的 iCloud 同步 —— 通过你自己的 iCloud 账户在设备间同步自选股，默认关闭。",
           "单一数据源 —— 全部来自 SEC EDGAR，不展示行情数据。"
         ]
       },

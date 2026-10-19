@@ -398,7 +398,7 @@ struct AppDetailView: View {
 | 约定 | 原因 |
 |---|---|
 | **必须忽略未知字段** | 服务端会随时新增可选字段。Swift `Codable` 默认即如此，不要手写严格解析 |
-| **`appStoreUrl` 可能为空** | 例如 Filingo 尚未上架。此时隐藏下载按钮，不要显示死链 |
+| **`appStoreUrl` 可能为空** | 例如 FilingoReader 尚未上架。此时隐藏下载按钮，不要显示死链 |
 | **`icon` / `screenshots` 可能加载失败** | 一律提供占位图，不要留空白或崩溃 |
 | **`iconSmall` / `screenshotThumbnails` 可能缺失或长度不齐** | 回退 `icon` / `screenshots`（按索引对应），不要报错 |
 | **必须本地缓存最近一次成功的结果** | 请求失败时展示缓存，避免推荐页空白 |
@@ -427,10 +427,10 @@ curl -s https://wangjin2013.github.io/ApplicationCenter/data/apps.json \
 当前线上数据：
 
 ```
-1 2026-10-15
+1 2026-10-19
   knowcal  | KnowCal                      | store: True
   myclock  | MyClock - Weather and Alarm  | store: True
-  filingo  | Filingo                      | store: False   ← 尚未上架，按钮应隐藏
+  filingo  | FilingoReader                | store: False   ← 尚未上架，按钮应隐藏
 ```
 
-联调通过标准：列表渲染出 3 个 App、点击能进详情、Filingo 不显示下载按钮、其余两个能跳到 App Store、断网后仍能看到上次的数据。
+联调通过标准：列表渲染出 3 个 App、点击能进详情、FilingoReader 不显示下载按钮、其余两个能跳到 App Store、断网后仍能看到上次的数据。
