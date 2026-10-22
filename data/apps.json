@@ -1,7 +1,7 @@
 {
   "version": 1,
   "defaultLocale": "en",
-  "updatedAt": "2026-10-19",
+  "updatedAt": "2026-10-22",
   "apps": [
     {
       "id": "knowcal",
@@ -108,7 +108,7 @@
       "name": "FilingoReader",
       "icon": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/filingo.png",
       "iconSmall": "https://wangjin2013.github.io/ApplicationCenter/assets/icons/thumbs/filingo.png",
-      "appStoreUrl": "",
+      "appStoreUrl": "https://apps.apple.com/us/app/filingoreader/id6821028710",
       "category": {
         "en": "Finance",
         "zh": "财务"
