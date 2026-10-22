@@ -141,8 +141,18 @@
           "单一数据源 —— 全部来自 SEC EDGAR，不展示行情数据。"
         ]
       },
-      "screenshots": [],
-      "screenshotThumbnails": []
+      "screenshots": [
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/filingo-1.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/filingo-2.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/filingo-3.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/filingo-4.jpg"
+      ],
+      "screenshotThumbnails": [
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/filingo-1.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/filingo-2.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/filingo-3.jpg",
+        "https://wangjin2013.github.io/ApplicationCenter/assets/screenshots/thumbs/filingo-4.jpg"
+      ]
     }
   ]
 }
